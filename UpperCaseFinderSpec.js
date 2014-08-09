@@ -12,8 +12,9 @@ describe("Upper case letters finder", function() {
     expect(findCapitalLetterPositions("")).toEqual([]);
   });
 
-  it("finds the index of a word with one capital letter", function() {
+  it("finds the index of a word with one letter that is upper case", function() {
     expect(findCapitalLetterPositions("A")).toEqual([0]);
   });
+
 
 });
