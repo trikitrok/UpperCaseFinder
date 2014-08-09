@@ -1,14 +1,25 @@
 'use strict';
 
 function findCapitalLetterPositions(word) {
+  var res = [];
+
   if(word.length === 0) {
-    return [];    
+    return res;    
   }
 
   if(isUpperCase(word[0])) {
-    return [0];
+    res = [0];
   }
-  return [];
+
+  if (word.length == 1) {
+    return res;  
+  }
+  
+  if(isUpperCase(word[1])) {
+    res = [1];
+  }
+  
+  return res;
 }
 
 function isUpperCase(letter) {
@@ -26,5 +37,9 @@ describe("Upper case letters finder", function() {
 
   it("produces no index for a one letter word containing no capital letters", function() {
     expect(findCapitalLetterPositions("a")).toEqual([]);
+  });
+
+  it("produces the index of a capital letter not at the beginning of the word", function() {
+    expect(findCapitalLetterPositions("aA")).toEqual([1]);
   });
 });
