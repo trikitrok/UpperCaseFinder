@@ -5,10 +5,14 @@ function findCapitalLetterPositions(word) {
     return [];    
   }
 
-  if(word[0].toUpperCase() == word[0]) {
+  if(isUpperCase(word[0])) {
     return [0];
   }
   return [];
+}
+
+function isUpperCase(letter) {
+  return letter.toUpperCase() == letter[0];
 }
 
 describe("Upper case letters finder", function() {
