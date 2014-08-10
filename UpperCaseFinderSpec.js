@@ -25,19 +25,7 @@ describe("Upper case letters finder", function() {
     expect(findCapitalLetterPositions("")).toEqual([]);
   });
 
-  it("produces the index of a capital letter in a one letter word", function() {
-    expect(findCapitalLetterPositions("A")).toEqual([0]);
-  });
-
-  it("produces no index for a one letter word containing no capital letters", function() {
-    expect(findCapitalLetterPositions("a")).toEqual([]);
-  });
-
-  it("produces the index of a capital letter not at the beginning of the word", function() {
-    expect(findCapitalLetterPositions("aA")).toEqual([1]);
-  });
-
-  it("produces the indexes of several capital letters in a word", function() {
+  it("produces the indexes of capital letters in a word", function() {
     expect(findCapitalLetterPositions("BAsrwQMPaZ")).toEqual([0, 1, 5, 6, 7, 9]);
   });
 });
