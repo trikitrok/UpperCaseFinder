@@ -21,11 +21,11 @@ function findCapitalLetterPositions(word) {
 }
 
 describe("Upper case letters finder", function() {
-  it("an empty word contains no capital letters", function() {
+  it("produces no index for an empty word", function() {
     expect(findCapitalLetterPositions("")).toEqual([]);
   });
 
-  it("finds the index of a word with one letter that is upper case", function() {
+  it("produces the index of a capital letter in a one letter word", function() {
     expect(findCapitalLetterPositions("A")).toEqual([0]);
   });
 
