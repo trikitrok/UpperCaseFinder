@@ -1,43 +1,23 @@
 'use strict';
 
 function findCapitalLetterPositions(word) {
-  // var res = [];
-
-  // if(word.length === 0) {
-  //   return res;    
-  // }
-
-  // if(isUpperCase(word[0])) {
-  //   res = res.concat([0]);
-  // }
-
-  // if (word.length == 1) {
-  //   return res;  
-  // }
-  
-  // if(isUpperCase(word[1])) {
-  //   res = res.concat([1]);
-  // }
-
-  // return res;
-
   return f(word, 0);
 
   function f(word, index) {
-    if(word.length == index) {
+    if (word.length == index) {
       return [];
     }
 
-    if(isUpperCase(word[index])) {
+    if (isUpperCase(word[index])) {
       return [index].concat(f(word, index + 1));
     }
 
     return f(word, index + 1);
   }
-}
 
-function isUpperCase(letter) {
-  return letter.toUpperCase() == letter[0];
+  function isUpperCase(letter) {
+    return letter.toUpperCase() == letter[0];
+  }
 }
 
 describe("Upper case letters finder", function() {
@@ -58,6 +38,6 @@ describe("Upper case letters finder", function() {
   });
 
   it("produces the indexes of a two capital letters word", function() {
-    expect(findCapitalLetterPositions("BA")).toEqual([0,1]);
+    expect(findCapitalLetterPositions("BA")).toEqual([0, 1]);
   });
 });
