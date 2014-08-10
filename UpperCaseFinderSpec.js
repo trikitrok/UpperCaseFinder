@@ -37,7 +37,7 @@ describe("Upper case letters finder", function() {
     expect(findCapitalLetterPositions("aA")).toEqual([1]);
   });
 
-  it("produces the indexes of a two capital letters word", function() {
-    expect(findCapitalLetterPositions("BA")).toEqual([0, 1]);
+  it("produces the indexes of several capital letters in a word", function() {
+    expect(findCapitalLetterPositions("BAsrwQMPaZ")).toEqual([0, 1, 5, 6, 7, 9]);
   });
 });
