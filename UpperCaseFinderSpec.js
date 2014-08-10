@@ -8,15 +8,19 @@ function findCapitalLetterPositions(word) {
       return [];
     }
 
-    if (isUpperCase(word[index])) {
-      return [index].concat(f(word, index + 1));
+    if(isNotLetter(word[index]) || isNotUpperCase(word[index])) {
+      return f(word, index + 1);
     }
 
-    return f(word, index + 1);
+    return [index].concat(f(word, index + 1));
   }
 
-  function isUpperCase(letter) {
-    return letter.toUpperCase() == letter[0];
+  function isNotUpperCase(letter) {
+    return letter.toUpperCase() != letter[0];
+  }
+
+  function isNotLetter(char) {
+    return !char.match(/[a-z]/i);;
   }
 }
 
@@ -27,5 +31,9 @@ describe("Upper case letters finder", function() {
 
   it("produces the indexes of capital letters in a word", function() {
     expect(findCapitalLetterPositions("BAsrwQMPaZ")).toEqual([0, 1, 5, 6, 7, 9]);
+  });
+
+  it("ignores characters that are not letters", function() {
+   expect(findCapitalLetterPositions("3As5wQ6PaZ")).toEqual([1, 5, 7, 9]); 
   });
 });
